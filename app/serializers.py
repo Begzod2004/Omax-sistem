@@ -56,14 +56,13 @@ class Mahsulot_Serializers(serializers.ModelSerializer):
 class MahsulotlarSerializers(serializers.ModelSerializer):
     class Meta:
         model = Mahsulotlar
-        fields = ('id','mahsulot_rasm','mahsulot_nomi','mahsulot_format')
+        fields = "__all__"
 
 
 class Mahsulot_olchovSerializers(serializers.ModelSerializer):
-    mahsulot = MahsulotlarSerializers()
     class Meta:
         model = Mahsulot_olchov
-        fields = ('id','mahsulot','olchov','narx',)
+        fields = ('id','mahsulot_number','olchov','narx',)
         
 
 class Buyurtma1Serializers(serializers.ModelSerializer):

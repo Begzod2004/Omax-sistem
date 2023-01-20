@@ -7,6 +7,7 @@ from .models import Bonus, Import, Export, Mahsulot_olchov, Mijoz, Buyurtma, Hod
 from . import query_params
 from rest_framework.response import Response
 from rest_framework import generics, status
+from rest_framework.parsers import FormParser, MultiPartParser
 
 schema_view = get_swagger_view(title='Pastebin API')
 
@@ -196,6 +197,7 @@ class BuyurtmaViewSet(ModelViewSet):
 class Mahsulot_olchovViewSet(ModelViewSet):
     queryset = Mahsulot_olchov.objects.all()
     serializer_class = Mahsulot_olchovSerializers
+    parser_classes = (FormParser, MultiPartParser)
 
     def get_queryset(self):
         queryset = super().get_queryset()

@@ -22,7 +22,7 @@ class Mahsulotlar(models.Model):
         verbose_name_plural = 'Mahsulotlar'  
 
 class Mahsulot_olchov(models.Model):
-    mahsulot = models.ForeignKey(Mahsulotlar, on_delete=models.CASCADE)
+    mahsulot_number = models.IntegerField(default=0)
     olchov = models.FloatField(help_text="(kg lik, litrlik ...)")
     narx = models.FloatField(max_length=200)
    
