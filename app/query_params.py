@@ -70,6 +70,7 @@ def mahsulot_olchov_query_params():
         "olchov", openapi.IN_QUERY, description="olchov", type=openapi.TYPE_STRING)
     narx = openapi.Parameter(
         "narx", openapi.IN_QUERY, description="narx", type=openapi.TYPE_STRING)
+    
     # mahsulot_olchov = openapi.Parameter("mahsulot_olchov", openapi.IN_QUERY, description="mahsulot_olchov", type=openapi.TYPE_STRING)
     # mahsulot_narx = openapi.Parameter("mahsulot_narx", openapi.IN_QUERY, description="mahsulot_narx", type=openapi.TYPE_STRING)
 

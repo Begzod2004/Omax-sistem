@@ -197,13 +197,13 @@ class BuyurtmaViewSet(ModelViewSet):
 class Mahsulot_olchovViewSet(ModelViewSet):
     queryset = Mahsulot_olchov.objects.all()
     serializer_class = Mahsulot_olchovSerializers
-    parser_classes = (FormParser, MultiPartParser)
 
     def get_queryset(self):
         queryset = super().get_queryset()
         olchov = self.request.query_params.get("olchov")
         narx = self.request.query_params.get("narx")
-        
+        mahsulot_number = self.request.query_params.get("mahsulot_number")
+
         filter_data = {}
         if olchov:
             filter_data['olchov_id'] = olchov
@@ -211,10 +211,17 @@ class Mahsulot_olchovViewSet(ModelViewSet):
             filter_data['olchov'] = olchov
         if narx:
             filter_data['narx'] = narx
-       
+        if mahsulot_number:
+            filter_data['mahsulot_number'] = mahsulot_number
+
 
         queryset = queryset.filter(**filter_data)
         return queryset
+
+    @swagger_auto_schema(manual_parameters=query_params.mahsulot_olchov_query_params())
+    def list(self, *args, **kwargs):
+        return super(Mahsulot_olchovViewSet, self).list(*args, **kwargs)
+
 
     @swagger_auto_schema(manual_parameters=query_params.mahsulot_olchov_query_params())
     def list(self, *args, **kwargs):
