@@ -7,7 +7,6 @@ from .models import Bonus, Import, Export, Mahsulot_olchov, Mijoz, Buyurtma, Hod
 from . import query_params
 from rest_framework.response import Response
 from rest_framework import generics, status
-from rest_framework.parsers import FormParser, MultiPartParser
 
 schema_view = get_swagger_view(title='Pastebin API')
 
@@ -221,13 +220,6 @@ class Mahsulot_olchovViewSet(ModelViewSet):
     @swagger_auto_schema(manual_parameters=query_params.mahsulot_olchov_query_params())
     def list(self, *args, **kwargs):
         return super(Mahsulot_olchovViewSet, self).list(*args, **kwargs)
-
-
-    @swagger_auto_schema(manual_parameters=query_params.mahsulot_olchov_query_params())
-    def list(self, *args, **kwargs):
-        return super(Mahsulot_olchovViewSet, self).list(*args, **kwargs)
-
-
 
 class HodimViewSet(ModelViewSet):
     queryset = Hodim.objects.all()
